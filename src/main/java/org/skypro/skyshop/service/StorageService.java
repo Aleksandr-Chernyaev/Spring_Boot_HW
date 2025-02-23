@@ -22,15 +22,23 @@ public class StorageService {
     }
 
     private void initializeTestData() {
+        UUID productId1 = UUID.randomUUID();
+        productStorage.put(productId1, new SimpleProduct("Очки", 100, false, productId1));
 
-        productStorage.put(UUID.randomUUID(), new SimpleProduct("Очки", 100, false, UUID.randomUUID()));
-        productStorage.put(UUID.randomUUID(), new SimpleProduct("Диван", 15800, true, UUID.randomUUID()));
-        productStorage.put(UUID.randomUUID(), new DiscountedProduct("Пахлава", 474, 20, UUID.randomUUID()));
-        productStorage.put(UUID.randomUUID(), new FixPriceProduct("Клавиатура", UUID.randomUUID()));
+        UUID productId2 = UUID.randomUUID();
+        productStorage.put(productId2, new SimpleProduct("Диван", 15800, true, productId2));
 
+        UUID productId3 = UUID.randomUUID();
+        productStorage.put(productId3, new DiscountedProduct("Пахлава", 474, 20, productId3));
 
-        articleStorage.put(UUID.randomUUID(), new Article("Статья о животных", "Зебры", UUID.randomUUID()));
-        articleStorage.put(UUID.randomUUID(), new Article("Первая статья", "описание", UUID.randomUUID()));
+        UUID productId4 = UUID.randomUUID();
+        productStorage.put(productId4, new FixPriceProduct("Клавиатура", productId4));
+
+        UUID articleId1 = UUID.randomUUID();
+        articleStorage.put(articleId1, new Article("Статья о животных", "Зебры", articleId1));
+
+        UUID articleId2 = UUID.randomUUID();
+        articleStorage.put(articleId2, new Article("Первая статья", "описание", articleId2));
     }
 
     public Collection<Product> getAllProducts() {
